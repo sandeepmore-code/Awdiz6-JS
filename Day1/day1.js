@@ -14,7 +14,3 @@
 // predefined function - set of code
 
 console.log("Awdiz6")
-th
-
-
-zla run
