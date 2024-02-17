@@ -44,5 +44,12 @@
 // console.log(Result)
 // console.log(Fruits)
 
+// const array = ["A","B","C","D" ]
 
-+
+// const ans = array.slice(1,2);
+// console.log(ans)
+
+const array= ["A","B","C","D","E","F" ]
+
+array.splice(2,0,"Q")
+console.log(array)
