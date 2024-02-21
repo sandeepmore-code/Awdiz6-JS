@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <h1><u>Licence Check Eligiblity</u></h1>
+    <input id="age" type="number" placeholder="Type your age">
+    <button onclick="checkIsuservalid()">Check</button>
+    <p id="DispalyResult"></p>
+</body>
+<script>
+function checkIsuservalid(){
+    var age= document.getElementById("age").value;
+    const pTag = document.getElementById("DispalyResult");
+    if (age>18 && age<80){
+        var div = document.createdElement("div")
+        div.innerText="You are Allowed for Licenece"
+        div.style.color="aquablue"
+        pTag.appendChild(div)
+        alert("You are allowed for licenece")
+    } else if (age == 18){
+        var h1= document.createElement("h1")
+        h1.style.color="Red"
+        h1.style.fontFamily="italic"
+        h1.innerText="you are eligible for LL"
+        pTag.appendChild(h1)
+        alert("you are eligible for LL")    
+    } else {
+        var h2 = document.createElement("h3")
+        h3.innerText="you are not eligible"
+        h3.style.color="Green"
+        h3.style.fontFamily="Cursive"
+        pTag.appendChild(h3)
+        alert("you are not eligible")
+
+    }
+    document.getElementById("age").value=""
+}
+</script>
+
+</html>
