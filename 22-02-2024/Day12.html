@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <form onsubmit="Register(event)">
+        <h1><u>Register</u></h1>
+        <label ><u>Name</u></label><br>
+        <input required  id="name" type="text"><br>
+        <label>Email</label><br>
+        <input  required id="email" type="email"><br>
+        <label>Password</label><br>
+        <input  required id="password" type="password"><br>
+        <label>ConfirmPassword</label><br>
+        <input  required id="confirmpassword" type="password"><br>
+        <input style="margin-top: 25px;" type="submit" value="Register">
+
+    </form>
+</body>
+<script>
+      
+      function checkIsEmailExist(users,email) {
+             console.log(users,"users")
+            for ( var i = 0; i< users.length ; i++){
+                 console.log(users[i].email=== email)
+                if(users[i].email=== email){
+                    return true;
+                } 
+            }
+            return false;
+      }
+
+
+     function Register(event){
+        event.preventDefault();
+        const name=document.getElementById("name").value;
+        const email= document.getElementById("email").value;
+        const password= document.getElementById("password").value;
+        const confirmpassword = document.getElementById("confirmpassword").value;
+
+        console.log(name, email, password, confirmpassword)
+        
+        if(name && email && password && confirmpassword) {
+            if(password===confirmpassword){
+                const userData = {name, email: email, password:password}
+                const isUserlistExist =JSON.parse(localStorage.getItem("users"))
+                const emailExist = checkIsEmailExist(isUserlistExist,email)
+                if(emailExist){
+                    return alert ("Email available, Try another one.")
+                }
+                localStorage.setItem("user",JSON.stringify([userData]))
+                if(isUserlistExist?.length){
+                    isUserlistExist.push(userData)
+                    localStorage.setItem("users",JSON.stringify(isUserlistExist))
+                     } else {
+                    localStorage.setItem ("users",JSON.stringify([userData]))
+                }
+                
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("password").value = "";
+                document.getElementById("confirmpassword").value= "";
+                alert("Registration Successful.")
+                window.location.href = "./login.html"
+
+
+            }else{
+                alert("password does not match")
+            }
+
+        }else{
+            alert("All feilds are required")
+        }
+
+     }
+
+</script>
+</html>

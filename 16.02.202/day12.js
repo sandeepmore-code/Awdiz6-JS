@@ -27,7 +27,7 @@
 // console.log(3)
 
 function checkIsuservalid(){
-    var age=document.getElementById("age").value;
+    var age = document.getElementById("age").value;
     const pTag =document.getElementById("displayResult")
    }
 
